@@ -4,8 +4,9 @@ require 'sinatra/reloader'
 SECRET_NUMBER = rand(100)
 get '/' do
   guess = params['guess'].to_i
+  cheat = params['cheat']
   message = check_guess(guess)
-  erb :index, :locals => {:number => SECRET_NUMBER, :message => message}
+  erb :index, :locals => { :number => SECRET_NUMBER, :message => message, :cheat => cheat }
 end
 
 def check_guess(guess)
