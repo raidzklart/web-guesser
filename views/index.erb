@@ -1,15 +1,40 @@
 <html>
-  <head></head>
-  <body>
+
+<head>
+  <style>
+    #message {
+      color: rgb(32, 0, 0);
+    }
+  </style>
+</head>
+
+<body>
+  <p id="message">
     <%= message %>
-    <% if message == "You got it right!" %>
-    <p>
-      The SECRET NUMBER is <%= number %>
-    </p>
-    <% end %>
-    <form>
-      <input type='text' name='guess' />
-      <input type='submit' value='Guess!' />
-    </form>
-  </body>
+  </p>
+  <% if message == "You got it right!" %>
+  <p>
+    The SECRET NUMBER is <%= number %>
+  </p>
+  <% end %>
+  <form>
+    <input type='text' name='guess' />
+    <input type='submit' value='Guess!' />
+  </form>
+</body>
+<script>
+  const message = document.getElementById('message')
+  if (message.innerText == "You got it right!") {
+    message.style.color = 'green';
+  } else if (message.innerText == "Too high!") {
+    message.style.color = '#850700';
+  } else if (message.innerText == "Way too high!") {
+    message.style.color = '#ff0d00';
+  } else if (message.innerText == "Too low!") {
+    message.style.color = '#850700';
+  } else if (message.innerText == "Way too low!") {
+    message.style.color = '#ff0d00';
+  }
+</script>
+
 </html>
