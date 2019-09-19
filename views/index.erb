@@ -12,7 +12,7 @@
   <p id="message">
     <%= message %>
   </p>
-  <% if message == "You got it right!" || cheat == "true" %>
+  <% if cheat == "true" %>
   <p>
     The SECRET NUMBER is <%= number %>
   </p>
@@ -21,13 +21,11 @@
     <input type='text' name='guess' />
     <input type='submit' value='Guess!' />
   </form>
-  <button id="cheat-button">Cheat Mode</button>
+  <p>You have <%= guesses %> guesses remaining. </p>
 </body>
 <script>
   const message = document.getElementById('message');
-  if (message.innerText == "You got it right!") {
-    message.style.color = 'green';
-  } else if (message.innerText == "Too high!") {
+  if (message.innerText == "Too high!") {
     message.style.color = '#850700';
   } else if (message.innerText == "Way too high!") {
     message.style.color = '#ff0d00';
@@ -36,7 +34,7 @@
   } else if (message.innerText == "Way too low!") {
     message.style.color = '#ff0d00';
   } else {
-    message.style.color = '#200000';
+    message.style.color = 'green';
   }
 </script>
 
